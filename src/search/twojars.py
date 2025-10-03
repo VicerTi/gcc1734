@@ -40,7 +40,7 @@ class TwoJarsState:
         False
         """
         "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        return self.jars["J4"] == 2
 
     def legalMoves( self ):
         """
@@ -61,7 +61,23 @@ class TwoJarsState:
         ['fillJ4', 'pourJ3intoJ4', 'emptyJ3', 'emptyJ4']
         """
         "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        moves = []
+        j3, j4 = self.jars["J3"], self.jars["J4"]
+
+        if j3 < 3:
+            moves.append("fillJ3")
+        if j4 < 4:
+            moves.append("fillJ4")
+        if j3 > 0:
+            moves.append("emptyJ3")
+        if j4 > 0:
+            moves.append("emptyJ4")
+        if j3 > 0 and j4 < 4:
+            moves.append("pourJ3intoJ4")
+        if j4 > 0 and j3 < 3:
+            moves.append("pourJ4intoJ3")
+
+        return moves
 
     def result(self, move):
         """
@@ -75,7 +91,24 @@ class TwoJarsState:
         it returns a new object.
         """
         "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        j3, j4 = self.jars["J3"], self.jars["J4"]
+
+        if move == "fillJ3":
+            return TwoJarsState((j4, 3))
+        elif move == "fillJ4":
+            return TwoJarsState((4, j3))
+        elif move == "emptyJ3":
+            return TwoJarsState((j4, 0))
+        elif move == "emptyJ4":
+            return TwoJarsState((0, j3))
+        elif move == "pourJ3intoJ4":
+            transfer = min(j3, 4 - j4)
+            return TwoJarsState((j4 + transfer, j3 - transfer))
+        elif move == "pourJ4intoJ3":
+            transfer = min(j4, 3 - j3)
+            return TwoJarsState((j4 - transfer, j3 + transfer))
+        else:
+            raise Exception("Illegal move: " + move)
 
     # Utilities for comparison and display
     def __eq__(self, other):
@@ -87,17 +120,18 @@ class TwoJarsState:
           True
         """
         "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        return (self.jars["J4"], self.jars["J3"]) == (other.jars["J4"], other.jars["J3"])
 
     def __hash__(self):
-        return hash(str(self.jars))
+        #// return hash(str(self.jars))
+        return hash((self.jars["J4"], self.jars["J3"]))
 
     def __getAsciiString(self):
         """
           Returns a display string for the maze
         """
         "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        return f"J4: {self.jars['J4']}L | J3: {self.jars['J3']}L"
 
     def __str__(self):
         return self.__getAsciiString()

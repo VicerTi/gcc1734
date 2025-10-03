@@ -113,12 +113,53 @@ def depthFirstSearch(problem):
     print("Is the start a goal?", problem.isGoalState(problem.getStartState()))
     """
     "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    from util import Stack
+
+    # inicializa a pilha com o estado inicial e caminho vazio
+    frontier = Stack()
+    frontier.push((problem.getStartState(), []))
+
+    explored = set()
+
+    while not frontier.isEmpty():
+        state, path = frontier.pop()
+
+        # se é objetivo, retorna o caminho
+        if problem.isGoalState(state):
+            return path
+
+        if state not in explored:
+            explored.add(state)
+
+            # expandir sucessores
+            for successor, action, cost in problem.expand(state):
+                if successor not in explored:
+                    frontier.push((successor, path + [action]))
+
+    return []  # se não encontrou solução
 
 def breadthFirstSearch(problem):
     """Search the shallowest nodes in the search tree first."""
     "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    from util import Queue
+
+    frontier = Queue()
+    start = (problem.getStartState(), [])  # nó inicial: (estado, caminho)
+    frontier.push(start)
+    explored = set()
+
+    while not frontier.isEmpty():
+        state, path = frontier.pop()
+
+        if problem.isGoalState(state):
+            return path
+
+        if state not in explored:
+            explored.add(state)
+            for successor, action, _ in problem.expand(state):
+                frontier.push((successor, path + [action]))
+
+    return []
 
 def nullHeuristic(state, problem=None):
     """
@@ -130,7 +171,28 @@ def nullHeuristic(state, problem=None):
 def aStarSearch(problem, heuristic=nullHeuristic):
     """Search the node that has the lowest combined cost and heuristic first."""
     "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    from util import PriorityQueue
+
+    start_state = problem.getStartState()
+    frontier = PriorityQueue()
+    frontier.push((start_state, [], 0), heuristic(start_state, problem))  # (state, path, cost), priority = h(n)
+
+    expanded = set()
+
+    while not frontier.isEmpty():
+        state, path, cost = frontier.pop()
+
+        if problem.isGoalState(state):
+            return path
+
+        if state not in expanded:
+            expanded.add(state)
+            for successor, action, step_cost in problem.expand(state):
+                new_cost = cost + step_cost
+                priority = new_cost + heuristic(successor, problem)
+                frontier.push((successor, path + [action], new_cost), priority)
+
+    return []
 
 
 # Abbreviations

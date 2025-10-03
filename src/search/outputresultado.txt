@@ -1,0 +1,772 @@
+Microsoft Windows [versão 10.0.26100.5074]
+(c) Microsoft Corporation. Todos os direitos reservados.
+
+(base) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734>activate gcc1734
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734>cd .\src\search
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py
+Pacman died! Score: -400
+Average Score: -400.0
+Scores:        -400.0
+Win Rate:      0/1 (0.00)
+Record:        Loss
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l tinyMaze -p SearchAgent -a fn=tinyMazeSearch
+[SearchAgent] using function tinyMazeSearch
+[SearchAgent] using problem type PositionSearchProblem
+Path found with total cost of 8 in 0.0 seconds
+Search nodes expanded: 0
+Pacman emerges victorious! Score: 502
+Average Score: 502.0
+Scores:        502.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l tinyMaze -p SearchAgent -a fn=tinyMazeSearch
+[SearchAgent] using function tinyMazeSearch
+[SearchAgent] using problem type PositionSearchProblem
+Path found with total cost of 8 in 0.0 seconds
+Search nodes expanded: 0
+Pacman emerges victorious! Score: 502
+Average Score: 502.0
+Scores:        502.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l tinyMaze -p SearchAgent
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+Path found with total cost of 10 in 0.0 seconds
+Search nodes expanded: 15
+Pacman emerges victorious! Score: 500
+Average Score: 500.0
+Scores:        500.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l mediumMaze -p SearchAgent
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+Path found with total cost of 130 in 0.0 seconds
+Search nodes expanded: 146
+Pacman emerges victorious! Score: 380
+Average Score: 380.0
+Scores:        380.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l bigMaze -z .5 -p SearchAgent
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+Path found with total cost of 210 in 0.0 seconds
+Search nodes expanded: 390
+Pacman emerges victorious! Score: 300
+Average Score: 300.0
+Scores:        300.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python autograder.py -q q1
+E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\autograder.py:17: DeprecationWarning: the imp module is deprecated in favour of importlib and slated for removal in Python 3.12; see the module's documentation for alternative uses
+  import imp
+Starting on 10-1 at 17:20:40
+
+Question q1
+===========
+*** PASS: test_cases\q1\graph_backtrack.test
+***     solution:               ['1:A->C', '0:C->G']
+***     expanded_states:        ['A', 'D', 'C']
+*** PASS: test_cases\q1\graph_bfs_vs_dfs.test
+***     solution:               ['2:A->D', '0:D->G']
+***     expanded_states:        ['A', 'D']
+*** PASS: test_cases\q1\graph_infinite.test
+***     solution:               ['0:A->B', '1:B->C', '1:C->G']
+***     expanded_states:        ['A', 'B', 'C']
+*** PASS: test_cases\q1\graph_manypaths.test
+***     solution:               ['2:A->B2', '0:B2->C', '0:C->D', '2:D->E2', '0:E2->F', '0:F->G']
+***     expanded_states:        ['A', 'B2', 'C', 'D', 'E2', 'F']
+*** PASS: test_cases\q1\pacman_1.test
+***     pacman layout:          mediumMaze
+***     solution length: 130
+***     nodes expanded:         146
+
+### Question q1: 4/4 ###
+
+
+Finished at 17:20:40
+
+Provisional grades
+==================
+Question q1: 4/4
+------------------
+Total: 4/4
+
+Your grades are NOT yet registered.  To register your grades, make sure
+to follow your instructor's guidelines to receive credit on your project.
+
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l mediumMaze -p SearchAgent -a fn=bfs
+[SearchAgent] using function bfs
+[SearchAgent] using problem type PositionSearchProblem
+Traceback (most recent call last):
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\pacman.py", line 680, in <module>
+    runGames( **args )
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\pacman.py", line 646, in runGames
+    game.run()
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\game.py", line 607, in run
+    agent.registerInitialState(self.state.deepCopy())
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\searchAgents.py", line 115, in registerInitialState
+    self.actions  = self.searchFunction(problem) # Find a path
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\search.py", line 159, in breadthFirstSearch
+    for successor, action, _ in problem.getSuccessors(state):
+AttributeError: 'PositionSearchProblem' object has no attribute 'getSuccessors'
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l mediumMaze -p SearchAgent -a fn=bfs
+[SearchAgent] using function bfs
+[SearchAgent] using problem type PositionSearchProblem
+Path found with total cost of 68 in 0.0 seconds
+Search nodes expanded: 269
+Pacman emerges victorious! Score: 442
+Average Score: 442.0
+Scores:        442.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l bigMaze -p SearchAgent -a fn=bfs -z .5
+[SearchAgent] using function bfs
+[SearchAgent] using problem type PositionSearchProblem
+Path found with total cost of 210 in 0.0 seconds
+Search nodes expanded: 620
+Pacman emerges victorious! Score: 300
+Average Score: 300.0
+Scores:        300.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python eightpuzzle.p
+python: can't open file 'E:\\CódigoTeste\\InteligenciaArtificialTrabalho\\T1\\gcc1734\\src\\search\\eightpuzzle.p': [Errno 2] No such file or directory
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python eightpuzzle.py
+A random puzzle:
+-------------
+| 3 |   | 2 |
+-------------
+| 4 | 1 | 5 |
+-------------
+| 6 | 7 | 8 |
+-------------
+BFS found a path of 3 moves: ['down', 'left', 'up']
+After 1 move: down
+-------------
+| 3 | 1 | 2 |
+-------------
+| 4 |   | 5 |
+-------------
+| 6 | 7 | 8 |
+-------------
+Press return for the next state...
+After 2 moves: left
+-------------
+| 3 | 1 | 2 |
+-------------
+|   | 4 | 5 |
+-------------
+| 6 | 7 | 8 |
+-------------
+Press return for the next state...
+After 3 moves: up
+-------------
+|   | 1 | 2 |
+-------------
+| 3 | 4 | 5 |
+-------------
+| 6 | 7 | 8 |
+-------------
+Press return for the next state...
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python autograder.py -q q2
+E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\autograder.py:17: DeprecationWarning: the imp module is deprecated in favour of importlib and slated for removal in Python 3.12; see the module's documentation for alternative uses
+  import imp
+Starting on 10-1 at 17:31:21
+
+Question q2
+===========
+*** PASS: test_cases\q2\graph_backtrack.test
+***     solution:               ['1:A->C', '0:C->G']
+***     expanded_states:        ['A', 'B', 'C', 'D']
+*** PASS: test_cases\q2\graph_bfs_vs_dfs.test
+***     solution:               ['1:A->G']
+***     expanded_states:        ['A', 'B']
+*** PASS: test_cases\q2\graph_infinite.test
+***     solution:               ['0:A->B', '1:B->C', '1:C->G']
+***     expanded_states:        ['A', 'B', 'C']
+*** PASS: test_cases\q2\graph_manypaths.test
+***     solution:               ['1:A->C', '0:C->D', '1:D->F', '0:F->G']
+***     expanded_states:        ['A', 'B1', 'C', 'B2', 'D', 'E1', 'F', 'E2']
+*** PASS: test_cases\q2\pacman_1.test
+***     pacman layout:          mediumMaze
+***     solution length: 68
+***     nodes expanded:         269
+
+### Question q2: 4/4 ###
+
+
+Finished at 17:31:21
+
+Provisional grades
+==================
+Question q2: 4/4
+------------------
+Total: 4/4
+
+Your grades are NOT yet registered.  To register your grades, make sure
+to follow your instructor's guidelines to receive credit on your project.
+
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l bigMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic
+[SearchAgent] using function astar and heuristic manhattanHeuristic
+[SearchAgent] using problem type PositionSearchProblem
+*** Method not implemented: aStarSearch at line 174 of E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\search.py
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l bigMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic
+[SearchAgent] using function astar and heuristic manhattanHeuristic
+[SearchAgent] using problem type PositionSearchProblem
+Path found with total cost of 210 in 0.0 seconds
+Search nodes expanded: 549
+Pacman emerges victorious! Score: 300
+Average Score: 300.0
+Scores:        300.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l bigMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic
+[SearchAgent] using function astar and heuristic manhattanHeuristic
+[SearchAgent] using problem type PositionSearchProblem
+Path found with total cost of 210 in 0.0 seconds
+Search nodes expanded: 549
+Pacman emerges victorious! Score: 300
+Average Score: 300.0
+Scores:        300.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python autograder.py -q q3
+E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\autograder.py:17: DeprecationWarning: the imp module is deprecated in favour of importlib and slated for removal in Python 3.12; see the module's documentation for alternative uses
+  import imp
+Starting on 10-1 at 17:38:28
+
+Question q3
+===========
+*** PASS: test_cases\q3\astar_0.test
+***     solution:               ['Right', 'Down', 'Down']
+***     expanded_states:        ['A', 'B', 'D', 'C', 'G']
+*** PASS: test_cases\q3\astar_1_graph_heuristic.test
+***     solution:               ['0', '0', '2']
+***     expanded_states:        ['S', 'A', 'D', 'C']
+*** PASS: test_cases\q3\astar_2_manhattan.test
+***     pacman layout:          mediumMaze
+***     solution length: 68
+***     nodes expanded:         221
+*** PASS: test_cases\q3\astar_3_goalAtDequeue.test
+***     solution:               ['1:A->B', '0:B->C', '0:C->G']
+***     expanded_states:        ['A', 'B', 'C']
+*** PASS: test_cases\q3\graph_backtrack.test
+***     solution:               ['1:A->C', '0:C->G']
+***     expanded_states:        ['A', 'B', 'C', 'D']
+*** PASS: test_cases\q3\graph_manypaths.test
+***     solution:               ['1:A->C', '0:C->D', '1:D->F', '0:F->G']
+***     expanded_states:        ['A', 'B1', 'C', 'B2', 'D', 'E1', 'F', 'E2']
+
+### Question q3: 4/4 ###
+
+
+Finished at 17:38:28
+
+Provisional grades
+==================
+Question q3: 4/4
+------------------
+Total: 4/4
+
+Your grades are NOT yet registered.  To register your grades, make sure
+to follow your instructor's guidelines to receive credit on your project.
+
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l tinyCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
+Traceback (most recent call last):
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\pacman.py", line 679, in <module>
+    args = readCommand( sys.argv[1:] ) # Get game components based on input
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\pacman.py", line 541, in readCommand
+    pacmanType = loadAgent(options.pacman, noKeyboard)
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\pacman.py", line 601, in loadAgent
+    module = __import__(modulename[:-3])
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\searchAgents.py", line 42, in <module>
+    import search
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\search.py", line 197, in <module>
+    class CornersProblem(search.SearchProblem):
+NameError: name 'search' is not defined
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l tinyCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
+[SearchAgent] using function bfs
+[SearchAgent] using problem type CornersProblem
+Path found with total cost of 28 in 0.0 seconds
+Search nodes expanded: 435
+Pacman emerges victorious! Score: 512
+Average Score: 512.0
+Scores:        512.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l mediumCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
+[SearchAgent] using function bfs
+[SearchAgent] using problem type CornersProblem
+Path found with total cost of 106 in 0.1 seconds
+Search nodes expanded: 2448
+Pacman emerges victorious! Score: 434
+Average Score: 434.0
+Scores:        434.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l tinyCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
+[SearchAgent] using function bfs
+[SearchAgent] using problem type CornersProblem
+Path found with total cost of 28 in 0.0 seconds
+Search nodes expanded: 435
+Pacman emerges victorious! Score: 512
+Average Score: 512.0
+Scores:        512.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l mediumCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
+[SearchAgent] using function bfs
+[SearchAgent] using problem type CornersProblem
+Path found with total cost of 106 in 0.1 seconds
+Search nodes expanded: 2448
+Pacman emerges victorious! Score: 434
+Average Score: 434.0
+Scores:        434.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python autograder.py -q q4
+E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\autograder.py:17: DeprecationWarning: the imp module is deprecated in favour of importlib and slated for removal in Python 3.12; see the module's documentation for alternative uses
+  import imp
+Note: due to dependencies, the following tests will be run: q2 q4
+Starting on 10-1 at 18:15:30
+
+Question q2
+===========
+*** PASS: test_cases\q2\graph_backtrack.test
+***     solution:               ['1:A->C', '0:C->G']
+***     expanded_states:        ['A', 'B', 'C', 'D']
+*** PASS: test_cases\q2\graph_bfs_vs_dfs.test
+***     solution:               ['1:A->G']
+***     expanded_states:        ['A', 'B']
+*** PASS: test_cases\q2\graph_infinite.test
+***     solution:               ['0:A->B', '1:B->C', '1:C->G']
+***     expanded_states:        ['A', 'B', 'C']
+*** PASS: test_cases\q2\graph_manypaths.test
+***     solution:               ['1:A->C', '0:C->D', '1:D->F', '0:F->G']
+***     expanded_states:        ['A', 'B1', 'C', 'B2', 'D', 'E1', 'F', 'E2']
+*** PASS: test_cases\q2\pacman_1.test
+***     pacman layout:          mediumMaze
+***     solution length: 68
+***     nodes expanded:         269
+
+### Question q2: 4/4 ###
+
+
+Question q4
+===========
+*** PASS: test_cases\q4\corner_tiny_corner.test
+***     pacman layout:          tinyCorner
+***     solution length:                28
+
+### Question q4: 3/3 ###
+
+
+Finished at 18:15:30
+
+Provisional grades
+==================
+Question q2: 4/4
+Question q4: 3/3
+------------------
+Total: 7/7
+
+Your grades are NOT yet registered.  To register your grades, make sure
+to follow your instructor's guidelines to receive credit on your project.
+
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l mediumCorners -p AStarCornersAgent -z 0.5
+Path found with total cost of 106 in 0.0 seconds
+Search nodes expanded: 1357
+Pacman emerges victorious! Score: 434
+Average Score: 434.0
+Scores:        434.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python autograder.py -q q5
+E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\autograder.py:17: DeprecationWarning: the imp module is deprecated in favour of importlib and slated for removal in Python 3.12; see the module's documentation for alternative uses
+  import imp
+Note: due to dependencies, the following tests will be run: q3 q5
+Starting on 10-1 at 22:36:25
+
+Question q3
+===========
+*** PASS: test_cases\q3\astar_0.test
+***     solution:               ['Right', 'Down', 'Down']
+***     expanded_states:        ['A', 'B', 'D', 'C', 'G']
+*** PASS: test_cases\q3\astar_1_graph_heuristic.test
+***     solution:               ['0', '0', '2']
+***     expanded_states:        ['S', 'A', 'D', 'C']
+*** PASS: test_cases\q3\astar_2_manhattan.test
+***     pacman layout:          mediumMaze
+***     solution length: 68
+***     nodes expanded:         221
+*** PASS: test_cases\q3\astar_3_goalAtDequeue.test
+***     solution:               ['1:A->B', '0:B->C', '0:C->G']
+***     expanded_states:        ['A', 'B', 'C']
+*** PASS: test_cases\q3\graph_backtrack.test
+***     solution:               ['1:A->C', '0:C->G']
+***     expanded_states:        ['A', 'B', 'C', 'D']
+*** PASS: test_cases\q3\graph_manypaths.test
+***     solution:               ['1:A->C', '0:C->D', '1:D->F', '0:F->G']
+***     expanded_states:        ['A', 'B1', 'C', 'B2', 'D', 'E1', 'F', 'E2']
+
+### Question q3: 4/4 ###
+
+
+Question q5
+===========
+*** PASS: heuristic value less than true cost at start state
+*** PASS: heuristic value less than true cost at start state
+*** PASS: heuristic value less than true cost at start state
+path: ['North', 'East', 'East', 'East', 'East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'South', 'West', 'West', 'North', 'East', 'East', 'North', 'North', 'North', 'North', 'East', 'East', 'North', 'North', 'North', 'North', 'North', 'North', 'West', 'West', 'West', 'West', 'South', 'South', 'East', 'East', 'East', 'East', 'South', 'South', 'South', 'South', 'South', 'South', 'East', 'East', 'East', 'East', 'East', 'East', 'South', 'South', 'East', 'East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'North', 'North', 'East', 'East', 'North', 'North', 'East', 'East', 'East', 'East', 'South', 'South', 'South', 'South', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'South', 'South', 'South', 'North', 'North', 'North', 'North', 'North', 'North', 'North', 'West', 'West', 'North', 'North', 'East', 'East', 'North', 'North']
+path length: 106
+*** FAIL: Heuristic resulted in expansion of 1357 nodes
+
+### Question q5: 2/3 ###
+
+
+Finished at 22:36:25
+
+Provisional grades
+==================
+Question q3: 4/4
+Question q5: 2/3
+------------------
+Total: 6/7
+
+Your grades are NOT yet registered.  To register your grades, make sure
+to follow your instructor's guidelines to receive credit on your project.
+
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l mediumCorners -p AStarCornersAgent -z 0.5
+Traceback (most recent call last):
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\pacman.py", line 680, in <module>
+    runGames( **args )
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\pacman.py", line 646, in runGames
+    game.run()
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\game.py", line 607, in run
+    agent.registerInitialState(self.state.deepCopy())
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\searchAgents.py", line 116, in registerInitialState
+    self.actions  = self.searchFunction(problem) # Find a path
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\searchAgents.py", line 435, in <lambda>
+    self.searchFunction = lambda prob: search.aStarSearch(prob, cornersHeuristic)
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\search.py", line 178, in aStarSearch
+    frontier.push((start_state, [], 0), heuristic(start_state, problem))  # (state, path, cost), priority = h(n)
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\searchAgents.py", line 428, in cornersHeuristic
+    distances = [mazeDistance(position, corner, problem.startingGameState) for corner in unvisited]
+  File "E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\searchAgents.py", line 428, in <listcomp>
+    distances = [mazeDistance(position, corner, problem.startingGameState) for corner in unvisited]
+AttributeError: 'CornersProblem' object has no attribute 'startingGameState'
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l mediumCorners -p AStarCornersAgent -z 0.5
+Path found with total cost of 106 in 14.7 seconds
+Search nodes expanded: 978
+Pacman emerges victorious! Score: 434
+Average Score: 434.0
+Scores:        434.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l mediumCorners -p AStarCornersAgent -z 0.5
+Path found with total cost of 106 in 14.8 seconds
+Search nodes expanded: 978
+Pacman emerges victorious! Score: 434
+Average Score: 434.0
+Scores:        434.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python autograder.py -q q5
+E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\autograder.py:17: DeprecationWarning: the imp module is deprecated in favour of importlib and slated for removal in Python 3.12; see the module's documentation for alternative uses
+  import imp
+Note: due to dependencies, the following tests will be run: q3 q5
+Starting on 10-1 at 22:50:41
+
+Question q3
+===========
+*** PASS: test_cases\q3\astar_0.test
+***     solution:               ['Right', 'Down', 'Down']
+***     expanded_states:        ['A', 'B', 'D', 'C', 'G']
+*** PASS: test_cases\q3\astar_1_graph_heuristic.test
+***     solution:               ['0', '0', '2']
+***     expanded_states:        ['S', 'A', 'D', 'C']
+*** PASS: test_cases\q3\astar_2_manhattan.test
+***     pacman layout:          mediumMaze
+***     solution length: 68
+***     nodes expanded:         221
+*** PASS: test_cases\q3\astar_3_goalAtDequeue.test
+***     solution:               ['1:A->B', '0:B->C', '0:C->G']
+***     expanded_states:        ['A', 'B', 'C']
+*** PASS: test_cases\q3\graph_backtrack.test
+***     solution:               ['1:A->C', '0:C->G']
+***     expanded_states:        ['A', 'B', 'C', 'D']
+*** PASS: test_cases\q3\graph_manypaths.test
+***     solution:               ['1:A->C', '0:C->D', '1:D->F', '0:F->G']
+***     expanded_states:        ['A', 'B1', 'C', 'B2', 'D', 'E1', 'F', 'E2']
+
+### Question q3: 4/4 ###
+
+
+Question q5
+===========
+*** PASS: heuristic value less than true cost at start state
+*** PASS: heuristic value less than true cost at start state
+*** PASS: heuristic value less than true cost at start state
+path: ['North', 'East', 'East', 'East', 'East', 'North', 'North', 'West', 'West', 'West', 'West', 'North', 'North', 'North', 'North', 'North', 'North', 'North', 'North', 'West', 'West', 'West', 'West', 'South', 'South', 'East', 'East', 'East', 'East', 'South', 'South', 'South', 'South', 'South', 'South', 'West', 'West', 'South', 'South', 'South', 'West', 'West', 'North', 'East', 'East', 'North', 'North', 'East', 'East', 'East', 'East', 'East', 'East', 'East', 'East', 'South', 'South', 'East', 'East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'North', 'North', 'East', 'East', 'North', 'North', 'East', 'East', 'East', 'East', 'South', 'South', 'South', 'South', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'South', 'South', 'South', 'North', 'North', 'North', 'North', 'North', 'North', 'North', 'West', 'West', 'North', 'North', 'East', 'East', 'North', 'North']
+path length: 106
+*** PASS: Heuristic resulted in expansion of 978 nodes
+
+### Question q5: 3/3 ###
+
+
+Finished at 22:50:56
+
+Provisional grades
+==================
+Question q3: 4/4
+Question q5: 3/3
+------------------
+Total: 7/7
+
+Your grades are NOT yet registered.  To register your grades, make sure
+to follow your instructor's guidelines to receive credit on your project.
+
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l testSearch -p AStarFoodSearchAgent
+Path found with total cost of 7 in 0.0 seconds
+Search nodes expanded: 10
+Pacman emerges victorious! Score: 513
+Average Score: 513.0
+Scores:        513.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l trickySearch -p AStarFoodSearchAgent
+Path found with total cost of 60 in 61.6 seconds
+Search nodes expanded: 4137
+Pacman emerges victorious! Score: 570
+Average Score: 570.0
+Scores:        570.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python autograder.py -q q6
+E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\autograder.py:17: DeprecationWarning: the imp module is deprecated in favour of importlib and slated for removal in Python 3.12; see the module's documentation for alternative uses
+  import imp
+Note: due to dependencies, the following tests will be run: q3 q6
+Starting on 10-1 at 23:01:51
+
+Question q3
+===========
+*** PASS: test_cases\q3\astar_0.test
+***     solution:               ['Right', 'Down', 'Down']
+***     expanded_states:        ['A', 'B', 'D', 'C', 'G']
+*** PASS: test_cases\q3\astar_1_graph_heuristic.test
+***     solution:               ['0', '0', '2']
+***     expanded_states:        ['S', 'A', 'D', 'C']
+*** PASS: test_cases\q3\astar_2_manhattan.test
+***     pacman layout:          mediumMaze
+***     solution length: 68
+***     nodes expanded:         221
+*** PASS: test_cases\q3\astar_3_goalAtDequeue.test
+***     solution:               ['1:A->B', '0:B->C', '0:C->G']
+***     expanded_states:        ['A', 'B', 'C']
+*** PASS: test_cases\q3\graph_backtrack.test
+***     solution:               ['1:A->C', '0:C->G']
+***     expanded_states:        ['A', 'B', 'C', 'D']
+*** PASS: test_cases\q3\graph_manypaths.test
+***     solution:               ['1:A->C', '0:C->D', '1:D->F', '0:F->G']
+***     expanded_states:        ['A', 'B1', 'C', 'B2', 'D', 'E1', 'F', 'E2']
+
+### Question q3: 4/4 ###
+
+
+Question q6
+===========
+*** PASS: test_cases\q6\food_heuristic_1.test
+*** PASS: test_cases\q6\food_heuristic_10.test
+*** PASS: test_cases\q6\food_heuristic_11.test
+*** PASS: test_cases\q6\food_heuristic_12.test
+*** PASS: test_cases\q6\food_heuristic_13.test
+*** PASS: test_cases\q6\food_heuristic_14.test
+*** PASS: test_cases\q6\food_heuristic_15.test
+*** PASS: test_cases\q6\food_heuristic_16.test
+*** PASS: test_cases\q6\food_heuristic_17.test
+*** PASS: test_cases\q6\food_heuristic_2.test
+*** PASS: test_cases\q6\food_heuristic_3.test
+*** PASS: test_cases\q6\food_heuristic_4.test
+*** PASS: test_cases\q6\food_heuristic_5.test
+*** PASS: test_cases\q6\food_heuristic_6.test
+*** PASS: test_cases\q6\food_heuristic_7.test
+*** PASS: test_cases\q6\food_heuristic_8.test
+*** PASS: test_cases\q6\food_heuristic_9.test
+*** PASS: test_cases\q6\food_heuristic_grade_tricky.test
+***     expanded nodes: 4137
+***     thresholds: [15000, 12000, 9000, 7000]
+
+### Question q6: 5/4 ###
+
+
+Finished at 23:02:54
+
+Provisional grades
+==================
+Question q3: 4/4
+Question q6: 5/4
+------------------
+Total: 9/8
+
+Your grades are NOT yet registered.  To register your grades, make sure
+to follow your instructor's guidelines to receive credit on your project.
+
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python pacman.py -l bigSearch -p ClosestDotSearchAgent -z .5
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+Path found with cost 350.
+Pacman emerges victorious! Score: 2360
+Average Score: 2360.0
+Scores:        2360.0
+Win Rate:      1/1 (1.00)
+Record:        Win
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python autograder.py -q q7
+E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search\autograder.py:17: DeprecationWarning: the imp module is deprecated in favour of importlib and slated for removal in Python 3.12; see the module's documentation for alternative uses
+  import imp
+Starting on 10-1 at 23:16:12
+
+Question q7
+===========
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+*** PASS: test_cases\q7\closest_dot_1.test
+***     pacman layout:          Test 1
+***     solution length:                1
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+*** PASS: test_cases\q7\closest_dot_10.test
+***     pacman layout:          Test 10
+***     solution length:                1
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+*** PASS: test_cases\q7\closest_dot_11.test
+***     pacman layout:          Test 11
+***     solution length:                2
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+*** PASS: test_cases\q7\closest_dot_12.test
+***     pacman layout:          Test 12
+***     solution length:                3
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+*** PASS: test_cases\q7\closest_dot_13.test
+***     pacman layout:          Test 13
+***     solution length:                1
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+*** PASS: test_cases\q7\closest_dot_2.test
+***     pacman layout:          Test 2
+***     solution length:                1
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+*** PASS: test_cases\q7\closest_dot_3.test
+***     pacman layout:          Test 3
+***     solution length:                1
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+*** PASS: test_cases\q7\closest_dot_4.test
+***     pacman layout:          Test 4
+***     solution length:                3
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+*** PASS: test_cases\q7\closest_dot_5.test
+***     pacman layout:          Test 5
+***     solution length:                1
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+*** PASS: test_cases\q7\closest_dot_6.test
+***     pacman layout:          Test 6
+***     solution length:                2
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+*** PASS: test_cases\q7\closest_dot_7.test
+***     pacman layout:          Test 7
+***     solution length:                1
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+*** PASS: test_cases\q7\closest_dot_8.test
+***     pacman layout:          Test 8
+***     solution length:                1
+[SearchAgent] using function depthFirstSearch
+[SearchAgent] using problem type PositionSearchProblem
+*** PASS: test_cases\q7\closest_dot_9.test
+***     pacman layout:          Test 9
+***     solution length:                1
+
+### Question q7: 3/3 ###
+
+
+Finished at 23:16:12
+
+Provisional grades
+==================
+Question q7: 3/3
+------------------
+Total: 3/3
+
+Your grades are NOT yet registered.  To register your grades, make sure
+to follow your instructor's guidelines to receive credit on your project.
+
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>python twojars.py
+A random initial state:
+J4: 0L | J3: 0L
+BFS found a path of 6 moves: ['fillJ3', 'pourJ3intoJ4', 'fillJ3', 'pourJ3intoJ4', 'emptyJ4', 'pourJ3intoJ4']
+After 1 move: fillJ3
+J4: 0L | J3: 3L
+Press return for the next state...
+After 2 moves: pourJ3intoJ4
+J4: 3L | J3: 0L
+Press return for the next state...
+After 3 moves: fillJ3
+J4: 3L | J3: 3L
+Press return for the next state...
+After 4 moves: pourJ3intoJ4
+J4: 4L | J3: 2L
+Press return for the next state...
+After 5 moves: emptyJ4
+J4: 0L | J3: 2L
+Press return for the next state...
+After 6 moves: pourJ3intoJ4
+J4: 2L | J3: 0L
+Press return for the next state...
+
+(gcc1734) E:\CódigoTeste\InteligenciaArtificialTrabalho\T1\gcc1734\src\search>
