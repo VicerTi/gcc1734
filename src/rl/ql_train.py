@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Callable, Dict, Iterable, List, MutableMapping, Optional
 
 import gymnasium as gym
+
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.signal import savgol_filter
@@ -18,6 +19,11 @@ if __package__ is None or __package__ == "":
 
 from rl.environment_blackjack import BlackjackEnvironment
 from rl.environment_taxi import TaxiEnvironment
+
+from rl.environment_cliffwalking import CliffWalkingEnvironment
+from rl.environment_frozenlake import FrozenLakeEnvironment
+from rl.environment_mountaincar import MountainCarEnvironment # Novo (Para Questão 3.2)
+
 from rl.qln import QLearningAgentNeural as QLearningAgentNeural
 from rl.qll import QLearningAgentLinear
 from rl.qlt import QLearningAgentTabular
@@ -31,6 +37,9 @@ TrainFn = Callable[[object, argparse.Namespace], Dict[str, Iterable[float]]]
 environment_dict: Dict[str, EnvironmentFactory] = {
     "Blackjack-v1": BlackjackEnvironment,
     "Taxi-v3": TaxiEnvironment,
+    "CliffWalking-v1": CliffWalkingEnvironment,   # Novo
+    "FrozenLake-v1": FrozenLakeEnvironment,       # Novo
+    "MountainCar-v0": MountainCarEnvironment,     # Novo (Questão 3.2)
 }
 
 
